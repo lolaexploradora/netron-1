@@ -34,28 +34,33 @@
             "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/package.py",
-            "args": [ "build", "start" ],
+            "args": [
+                "build",
+                "start"
+            ],
             "justMyCode": true,
             "pathMappings": [
                 {
                     "localRoot": "${workspaceFolder}/source",
-                    "remoteRoot": "${workspaceFolder}/dist/pypi/netron",
+                    "remoteRoot": "${workspaceFolder}/dist/pypi/netron"
                 }
             ],
             "serverReadyAction": {
                 "action": "debugWithChrome",
                 "pattern": "Serving .*at http://localhost:([0-9]+)",
                 "uriFormat": "http://localhost:%s",
-                "webRoot": "${workspaceFolder}/source",
-            },
+                "webRoot": "${workspaceFolder}/source"
+            }
         },
         {
             "name": "Test Models",
             "type": "node",
             "request": "launch",
             "program": "${workspaceFolder}/test/models.js",
-            "args": [ "tag:validation" ],
-            "console": "integratedTerminal",
+            "args": [
+                "tag:validation"
+            ],
+            "console": "integratedTerminal"
         },
         {
             "name": "Test Backend",
@@ -69,8 +74,8 @@
                 "action": "debugWithChrome",
                 "pattern": "Serving .*at http://localhost:([0-9]+)",
                 "uriFormat": "http://localhost:%s",
-                "webRoot": "${workspaceFolder}/source",
-            },
+                "webRoot": "${workspaceFolder}/source"
+            }
         },
         {
             "name": "Tools Python",
@@ -87,7 +92,22 @@
             "request": "launch",
             "program": "${workspaceFolder}/package.js",
             "args": [],
-            "console": "integratedTerminal",
+            "console": "integratedTerminal"
         },
+        {
+            "name": "Containers: Python - Fastapi",
+            "type": "docker",
+            "request": "launch",
+            "preLaunchTask": "docker-run: debug",
+            "python": {
+                "pathMappings": [
+                    {
+                        "localRoot": "${workspaceFolder}",
+                        "remoteRoot": "/app"
+                    }
+                ],
+                "projectType": "fastapi"
+            }
+        }
     ]
 }
